@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>University List</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item">
+                            <a id="home-link" href="home" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>Home</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="university-list-link" href="university list" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>University List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="export-button" href="#" class="nav-link">
+                                <i class="nav-icon fas fa-download"></i>
+                                <p>Export to CSV</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="Website-info-link" href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>About Website</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper" id="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 id="page-title">Home</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item">Home</li>
+                                <li class="breadcrumb-item active" id="breadcrumb-university-list"
+                                    style="display: none;">University List</li>
+                                <li class="breadcrumb-item active" id="breadcrumb-website-info" style="display: none;">
+                                    Website Information</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main content -->
+            <section class="content" id="main-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Welcome to the University List Website!</h1>
+                        <p>This wesite was build for Data engineering purpose</p>
+                        <p>This website provides a list of universities and allows you to export the data to a CSV file.</p>
+                        <p>Please select "University List" from the sidebar menu to view the universities.</p>
+                        <p>Further update will include some more feature and also website improvements</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="content" id="website-info-content" style="display: none;">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>University List Web Application - Code Documentation</h1>
+                        <h3>Introduction</h3>
+                        <p>
+                            This document provides a detailed explanation of the code structure and functionality of the
+                            University List web application. The application allows users to view a list of universities
+                            and export the data to a CSV file. The code is divided into three main files:
+                            <code>index.js</code>, <code>script.js</code>, and <code>index.html</code>. Each file serves
+                            a specific purpose and contributes to the overall functionality of the application.
+                        </p>
+                        <h3>1. index.js</h3>
+                        <p>
+                            The <code>index.js</code> file serves as the server-side code for the web application. It
+                            handles routing, API requests, and file generation. Here is a breakdown of its key
+                            components:
+                        </p>
+                        <ul>
+                            <li>
+                                Required Modules:
+                                <ul>
+                                    <li><code>express</code>: A web application framework for Node.js.</li>
+                                    <li><code>axios</code>: A library for making HTTP requests to external APIs.</li>
+                                    <li><code>createCsvWriter</code>: A library for writing data to CSV files.</li>
+                                    <li><code>path</code>: A built-in Node.js module for working with file and directory
+                                        paths.</li>
+                                    <li><code>fs</code>: A built-in Node.js module for working with the file system.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Express Application Setup:
+                                <ul>
+                                    <li>Creates an instance of the Express application.</li>
+                                    <li>Sets the server port to 3000.</li>
+                                    <li>Configures the application to serve static files from the <code>public</code>
+                                        directory.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Routing:
+                                <ul>
+                                    <li>Defines a route for the root URL ("/") that sends the <code>index.html</code>
+                                        file.</li>
+                                    <li>Defines a route for serving the favicon.</li>
+                                    <li>Defines a route for the "/university-list" URL that sends the
+                                        <code>university-list.html</code> file.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                API Request:
+                                <ul>
+                                    <li>Defines a route ("/universities") for fetching university data from an external
+                                        API.</li>
+                                    <li>Makes a GET request to the API endpoint, retrieves the data, and sends it as a
+                                        JSON response.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                CSV Export:
+                                <ul>
+                                    <li>Defines a route ("/export") for exporting university data to a CSV file.</li>
+                                    <li>Fetches university data from the API.</li>
+                                    <li>Writes the data to a CSV file using the <code>createCsvWriter</code> library.
+                                    </li>
+                                    <li>Sends the generated CSV file as a download response.</li>
+                                    <li>Deletes the generated CSV file after it's downloaded.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Server Start:
+                                <ul>
+                                    <li>Starts the server and listens on the specified port.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>2. script.js</h3>
+                        <p>
+                            The <code>script.js</code> file contains the client-side JavaScript code that enhances the
+                            functionality of the web application. It handles DOM manipulation, data retrieval, and event
+                            handling. Here is an overview of its main components:
+                        </p>
+                        <ul>
+                            <li>
+                                DOM Event Listener:
+                                <ul>
+                                    <li>Waits for the <code>DOMContentLoaded</code> event before executing the
+                                        JavaScript code.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                University Data Retrieval:
+                                <ul>
+                                    <li>Makes a GET request to the "/universities" endpoint to fetch the university data
+                                        from the server.</li>
+                                    <li>Retrieves necessary DOM elements using <code>getElementById</code>.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                University List Display:
+                                <ul>
+                                    <li>Defines a function (<code>showUniversityList</code>) to display the university
+                                        data in a table.</li>
+                                    <li>Dynamically creates table rows and cells to populate the table with university
+                                        information.</li>
+                                    <li>Calculates the number of pages based on the data length.</li>
+                                    <li>Creates pagination links dynamically based on the number of pages.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Page Navigation:
+                                <ul>
+                                    <li>Adds event listeners to the "Home" and "University List" links to toggle the
+                                        visibility of content sections.</li>
+                                    <li>Sets the first page as default when the "University List" link is clicked.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Export to CSV:
+                                <ul>
+                                    <li>Adds an event listener to the "Export to CSV" button.</li>
+                                    <li>Initiates the export process by making a GET request to the "/export" endpoint.
+                                    </li>
+
+
+                                    <li>Downloads the generated CSV file and handles any errors that occur during the
+                                        export.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>3. index.html</h3>
+                        <p>
+                            The <code>index.html</code> file serves as the main HTML structure for the web application.
+                            It defines the layout, content, and styling of the web pages. Here is an overview of its key
+                            components:
+                        </p>
+                        <ul>
+                            <li>
+                                HTML Structure:
+                                <ul>
+                                    <li>Includes necessary CSS and JavaScript files.</li>
+                                    <li>Defines the main layout using AdminLTE components.</li>
+                                    <li>Sets up the main sidebar menu with "Home", "University List", and "Export to
+                                        CSV" links.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Content Sections:
+                                <ul>
+                                    <li>Sets up the content wrapper with separate sections for the home content and the
+                                        university list content.</li>
+                                    <li>Includes a welcome message and introduction in the home content section.</li>
+                                    <li>Sets up the table structure in the university list content section.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Pagination:
+                                <ul>
+                                    <li>Adds a pagination container to display the pagination links dynamically.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                JavaScript Integration:
+                                <ul>
+                                    <li>Attaches the <code>script.js</code> file to handle the dynamic behavior of the
+                                        web pages.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>Conclusion</h3>
+                        <p>
+                            The University List web application code is designed to provide users with an intuitive
+                            interface to view a list of universities and export the data to a CSV file. The server-side
+                            code handles routing, API requests, and file generation, while the client-side JavaScript
+                            enhances the interactivity and functionality of the web pages. The HTML structure and
+                            styling create a user-friendly and visually appealing experience.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- University List content -->
+            <section class="content" id="university-list-content" style="display: none;">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Country</th>
+                                    <th>State/Province</th>
+                                    <th>Web Pages</th>
+                                    <th>Domains</th>
+                                    <th>Alpha Two Code</th>
+                                </tr>
+                            </thead>
+                            <tbody id="university-list">
+                                <!-- University data will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pagination-container">
+                    <ul class="pagination" id="pagination">
+                        <!-- Pagination links will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

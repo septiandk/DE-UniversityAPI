@@ -1,0 +1,22 @@
+{
+  "name": "de-universityapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "RESTApi",
+    "NodeJS",
+    "ELT"
+  ],
+  "author": "SDK",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "csv-writer": "^1.6.0",
+    "express": "^4.18.2"
+  }
+}
